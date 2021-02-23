@@ -1,18 +1,32 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { NgSelectModule } from '@ng-select/ng-select';
+import { FormsModule } from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContributorService } from './services/contributors/contributor.service';
+import { ContributorsComponent } from './contributors/contributors.component';
+import { CommitsComponent } from './commits/commits.component';
+import { CommitService } from './services/commits/commit.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ContributorsComponent,
+    CommitsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    NgSelectModule, 
+    FormsModule
   ],
-  providers: [],
+  providers: [ContributorService,
+  CommitService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
