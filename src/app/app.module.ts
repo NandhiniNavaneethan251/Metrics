@@ -10,6 +10,8 @@ import { ContributorService } from './services/contributors/contributor.service'
 import { ContributorsComponent } from './contributors/contributors.component';
 import { CommitsComponent } from './commits/commits.component';
 import { CommitService } from './services/commits/commit.service';
+import {MatTableModule} from '@angular/material/table';
+import {AgGridModule} from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { CommitService } from './services/commits/commit.service';
     BrowserAnimationsModule,
     HttpClientModule,
     NgSelectModule, 
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    AgGridModule.withComponents([])
   ],
   providers: [ContributorService,
   CommitService],

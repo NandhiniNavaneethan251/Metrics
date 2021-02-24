@@ -9,6 +9,7 @@ import {ContributorService} from 'src/app/services/contributors/contributor.serv
 })
 export class ContributorsComponent implements OnInit {
   public contributors=[] as any;
+  public selectedUserIds: number[] = [];
  
   private readonly newProperty = this.contributors;
 
@@ -20,5 +21,8 @@ export class ContributorsComponent implements OnInit {
                 );
 
   }
+
+  columnDefs=[{field:"id",filter:true},{field:"Login"},{field:"RepoName"}];
+  
 
 }

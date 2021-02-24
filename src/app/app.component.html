@@ -1,24 +1,17 @@
 <div id="div1">
     <br>
-    <h6>Metrics Application</h6>
+    <h3>Metrics Application</h3>
 </div>
 <div id="div2">
     <br>
     <ng-select [(ngModel)]="metrics">
         <ng-option *ngFor="let item of items" [value]="item.id">{{item.name}}</ng-option>
     </ng-select>
-
 </div>
-<ng-container *ngIf="metrics==1; then contributors; else commits">
-</ng-container>
-<ng-template #contributors>
-    <div>
-        <app-contributors></app-contributors>
-    </div>
-</ng-template>
-<ng-template #commits>
-    <div>
-        <app-commits></app-commits>
-    </div>
-</ng-template>
+<div *ngIf="metrics==1">
+    <app-contributors></app-contributors>
+</div>
+<div *ngIf="metrics==2">
+    <app-commits></app-commits>
+</div>
 <router-outlet></router-outlet>

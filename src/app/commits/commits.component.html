@@ -1,3 +1,9 @@
-<ul>
-    <li *ngFor="let commit of commits">{{commit.Name}}</li>
-</ul>
+<ng-select [(ngModel)]="selectedUserIds">
+
+    <ng-option *ngFor="let commit of commits" [value]="commit.UserId">{{commit.UserId}}</ng-option>
+</ng-select>
+<div>
+    <ag-grid-angular style="width: 1000px;height: 500px;" class="ag-theme-alpine" [rowData]="commits" [columnDefs]="columnDef">
+
+    </ag-grid-angular>
+</div>

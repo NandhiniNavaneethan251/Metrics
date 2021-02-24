@@ -9,6 +9,7 @@ import {CommitService} from 'src/app/services/commits/commit.service';
 })
 export class CommitsComponent implements OnInit {
   public commits=[] as any;
+  public selectedUserIds: string[] = [];
 
   private readonly newProperty = this.commits;
   constructor(private _commitService:CommitService) { }
@@ -18,5 +19,6 @@ export class CommitsComponent implements OnInit {
       .subscribe(data => this.commits = data,
                 );
   }
+  columnDef=[{field:"UserId",filter:true},{field:"Name"},{field:"RepoName"},{field:"CommitDate"},{field:"CommitMessage"}];
 
 }
